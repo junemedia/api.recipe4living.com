@@ -10,7 +10,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // date defaults to today
 $date = date('Y-m-d');
-if (isset($args)) {
+if (isset($args[0])) {
   $date = array_shift($args);
 }
 
