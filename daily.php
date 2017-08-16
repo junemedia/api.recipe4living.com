@@ -20,7 +20,16 @@ if ($method === 'GET') {
     http_response_code(404);
     die;
   }
-  echo json_encode($campaign);
+
+
+  switch($datatype) {
+    case 'html':
+      include 'templates/daily.html';
+      break;
+    case 'json':
+    default:
+      echo json_encode($campaign);
+  }
 }
 
 // close mysql connection
