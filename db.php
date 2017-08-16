@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors', 1);
 
 // connect to the mysql database
 $databaseHost = 'stgdb.junemedia.com';
