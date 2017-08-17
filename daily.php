@@ -21,7 +21,6 @@ if ($method === 'GET') {
     die;
   }
 
-
   switch($datatype) {
     case 'html':
       include 'templates/daily.html';
@@ -84,7 +83,7 @@ return $items;
 }
 
 function _getArticle($slug) {
-  $sql = "SELECT a.`id`, a.`title`, a.`teaser`, a.`slug`, ai.`filename`
+  $sql = "SELECT a.`id`, a.`title`, a.`teaser`, a.`slug`, ai.`filename` as image
           FROM `articles` as a
           LEFT JOIN `articleImages` as ai
           ON ai.`articleId` = a.`id`
