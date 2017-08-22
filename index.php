@@ -1,5 +1,8 @@
 <?php
 
+// config settings, mostly database credentials
+include 'config.php';
+
 date_default_timezone_set('America/Chicago');
 
 $args = explode('/', trim($_REQUEST['path'], '/'));

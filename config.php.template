@@ -1,0 +1,10 @@
+<?php
+
+// comment this out to hide PHP error messages
+ini_set('display_errors', true);
+
+// db connection settings
+$databaseHost = '';
+$databaseUser = '';
+$databasePass = '';
+$databaseName = '';
