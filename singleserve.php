@@ -23,7 +23,7 @@ if ($method === 'GET') {
 
   switch($datatype) {
     case 'html':
-      include 'templates/daily.html';
+      include 'templates/singleserve.html';
       break;
     case 'json':
     default:
@@ -39,7 +39,7 @@ function getCampaign($date) {
   $sql = "SELECT `id`, `subject`
           FROM `newsletterCampaign`
           WHERE `campaign` <= '$date'
-          AND `newsletter` = 'daily'
+          AND `newsletter` = 'singleserve'
           ORDER BY `campaign` DESC
           LIMIT 1";
   $result = _query($sql);
