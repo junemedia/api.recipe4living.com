@@ -1,10 +1,33 @@
 <?php
 
+include('db.php');
+include('functions.php');
 
-if (file_exists("./$method.php")) {
-  include "./$method.php";
+// date defaults to today
+$date = date('Y-m-d');
+if (isset($args[0])) {
+  $date = array_shift($args);
 }
-else {
-  http_response_code(404);
-  die;
+
+$newsletter = $method;
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  $campaign = getCampaign($newsletter, $date);
+  if (!$campaign) {
+    http_response_code(404);
+    die;
+  }
+
+  switch($datatype) {
+    case 'html':
+      include "templates/$newsletter.html";
+      break;
+    case 'json':
+    default:
+      echo json_encode($campaign);
+  }
 }
+
+// close mysql connection
+mysqli_close($link);
