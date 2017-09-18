@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
   switch($datatype) {
     case 'html':
-      include "templates/$newsletter.html";
+      include 'buildTemplate.php';
       break;
     case 'json':
     default:

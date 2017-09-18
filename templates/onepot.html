@@ -6,11 +6,7 @@
 </head>
 
 <body>
-
-  <?php
-    $items = $campaign->items;
-    $feature = array_shift($items);
-  ?>
+  {% assign feature = items[0] %}
 
   <table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tbody>
@@ -43,8 +39,8 @@
             <!-- feature image -->
             <tr>
               <td colspan="2" align="center">
-                <a href="<?php echo $feature['targetUrl']; ?>?utm_content=Image" title="<?php echo $feature['title']; ?>" target="_blank" style="word-wrap: break-word !important;">
-                  <img alt="<?php echo $feature['title']; ?>" src="http://www.recipe4living.com/assets/itemimages/650/315/3/<?php echo $feature['image']; ?>" style="border: 0;line-height: 100%;outline: none;text-decoration: none;vertical-align: bottom;height: auto !important;" width="650" />
+                <a href="{{feature.targetUrl}}?utm_content=Image" title="{{feature.title}}" target="_blank" style="word-wrap: break-word !important;">
+                  <img alt="{{feature.title}}" src="http://www.recipe4living.com/assets/itemimages/650/315/3/{{feature.image}}" style="border: 0;line-height: 100%;outline: none;text-decoration: none;vertical-align: bottom;height: auto !important;" width="650" />
                 </a>
               </td>
             </tr>
@@ -66,9 +62,9 @@
             <tr>
               <td colspan="2" style="padding: 0px 10px;font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;font-size: 13px;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #606060;line-height: 150%;text-align: left;" valign="top" width="564">
                 <h4 style="display: block;font-family: Helvetica;font-size: 16px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;margin: 0;text-align: left;color: #808080 !important;">
-                  <a href="<?php echo $feature['targetUrl']; ?>?utm_content=title_link" target="_blank" title="<?php echo $feature['title']; ?>" style="color: #006faf;font-weight: normal;text-decoration: underline;word-wrap: break-word !important;"><?php echo $feature['title']; ?></a>
-                </h4><?php echo $feature['teaser']; ?>
-                <a href="<?php echo $feature['targetUrl']; ?>?utm_content=title_link" target="_blank" title="<?php echo $feature['title']; ?>" style="color: #006faf;font-weight: normal;text-decoration: underline;word-wrap: break-word !important;">Read More</a>
+                  <a href="{{feature.targetUrl}}?utm_content=title_link" target="_blank" title="{{feature.title}}" style="color: #006faf;font-weight: normal;text-decoration: underline;word-wrap: break-word !important;">{{feature.title}}</a>
+                </h4>{{feature.teaser}}
+                <a href="{{feature.targetUrl}}?utm_content=title_link" target="_blank" title="{{feature.title}}" style="color: #006faf;font-weight: normal;text-decoration: underline;word-wrap: break-word !importast;">Read More</a>
               </td>
             </tr>
             <!-- end feature content -->
@@ -83,17 +79,16 @@
               <td colspan="2" align="center" valign="top">
                 <table width="100%" border="0" style="padding:0px 5px;">
                   <tr>
-
-                    <?php for ($i = 0; $i < 4; $i++) { ?>
+                    {% for item in items offset:1 limit:4 %}
 
                     <td width="160" valign="top" style="font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;font-size: 10px">
-                      <a href="<?php echo $items[$i]['targetUrl']; ?>?utm_content=Image" title="<?php echo $items[$i]['title']; ?>" target="_blank" style="word-wrap:break-word !important;">
-                        <img alt="<?php echo $items[$i]['title']; ?>" src="http://www.recipe4living.com/assets/itemimages/160/160/3/<?php echo $items[$i]['image']; ?>" style="max-width:160px;border:0;line-height:100%;outline:none;text-decoration:none;vertical-align:bottom;height:auto !important;" width="160" height="150" />
+                      <a href="{{item.targetUrl}}?utm_content=Image" title="{{item.title}}" target="_blank" style="word-wrap:break-word !important;">
+                        <img alt="{{item.title}}" src="http://www.recipe4living.com/assets/itemimages/160/160/3/{{item.image}}" style="max-width:160px;border:0;line-height:100%;outline:none;text-decoration:none;vertical-align:bottom;height:auto !important;" width="160" height="150" />
                       </a>
-                      <p style="max-width:160px;float:left;"><a href="<?php echo $items[$i]['targetUrl']; ?>?utm_content=title_link" target="_blank" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;line-height:150%;font-weight:normal;text-decoration:underline;word-wrap:break-word !important;"><?php echo $items[$i]['title']; ?></a></p>
+                      <p style="max-width:160px;float:left;"><a href="{{item.targetUrl}}?utm_content=title_link" target="_blank" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;line-height:150%;font-weight:normal;text-decoration:underline;word-wrap:break-word !important;">{{item.title}}</a></p>
                     </td>
-                    <?php } ?>
 
+                    {% endfor %}
                   </tr>
                 </table>
               </td>

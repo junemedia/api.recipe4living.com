@@ -6,11 +6,7 @@
 
 </head>
 <body>
-
-  <?php
-    $items = $campaign->items;
-    $feature = array_shift($items);
-  ?>
+  {% assign feature = items[0] %}
 
   <table cellpadding="0" cellspacing="0" width="100%">
     <tbody>
@@ -39,14 +35,12 @@
           <!-- logo banner -->
           <table border="0" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="39" height="50" style="font-size: 0; line-height: 0;">&nbsp;</td>
-              <td width="300" height="50" style="font-size: 0; line-height: 0;">
+              <td width="43" style="font-size: 0; line-height: 0;">&nbsp;</td>
+              <td width="642" style="font-size: 0; line-height: 0;">
                 <a href="http://www.recipe4living.com/?utm_content=logo_image">
-                  <img src="https://cdn.maropost.com/pro/uploads/account_694/178499/R4L-Homepage-Logo.png" alt="ad" style="display: block;">
+                  <img src="https://cdn.maropost.com/pro/uploads/account_694/180202/single_serving.jpg" alt="ad" style="display: block;">
                 </a></td>
-              <td width="10" height="50" style="font-size: 0; line-height: 0;">&nbsp;</td>
-              <td width="340" height="50" style="font-family: Impact, Charcoal, sans-serif; font-weight: 100; font-size: 28px; " valign="middle">&nbsp;</td>
-              <td width="39" height="50" style="font-size: 0; line-height: 0;">&nbsp;</td>
+              <td width="43" style="font-size: 0; line-height: 0;">&nbsp;</td>
             </tr>
           </table>
           <!-- end logo banner -->
@@ -64,21 +58,21 @@
             <tr>
               <td width="39" height="250" style="font-size: 0; line-height: 0;">&nbsp;</td>
 
-              <td width="300" height="250" style="font-size: 0; line-height: 0;"><a href="<?php echo $feature['targetUrl']; ?>?utm_content=feature_image"><img src="http://www.recipe4living.com/assets/itemimages/300/250/3/<?php echo $feature['image']; ?>" alt="<?php echo $feature['title']; ?>" width="300" height="250"  style="display: block;"></a></td>
+              <td width="300" height="250" style="font-size: 0; line-height: 0;"><a href="{{feature.targetUrl}}?utm_content=feature_image"><img src="http://www.recipe4living.com/assets/itemimages/300/250/3/{{feature.image}}" alt="{{feature.title}}" width="300" height="250"  style="display: block;"></a></td>
 
               <td width="10" height="250" style="font-size: 0; line-height: 0;">&nbsp;</td>
 
               <td width="340" height="250" style="font-family: Helvetica, sans-serif;" valign="top">
                 <span style="font-size:22px; color:#000000; font-weight:bold;">
-                  <a href="<?php echo $feature['targetUrl']; ?>?utm_content=feature_title" style="font-size:22px; color:#000000; text-decoration:none;font-weight:bold;"><?php echo $feature['title']; ?></a><br/>
+                  <a href="{{feature.targetUrl}}?utm_content=feature_title" style="font-size:22px; color:#000000; text-decoration:none;font-weight:bold;">{{feature.title}}</a><br/>
                 </span>
 
                 <span style="font-size:15px; color:#666666;">
                   <br />
-                  <?php echo $feature['teaser']; ?>
+                  {{feature.teaser}}
                   <br />
                   <br />
-                  <a href="<?php echo $feature['targetUrl']; ?>?utm_content=feature_cta"><img src="http://pics.recipe4living.com/read_more_button_black_a.png" alt="ad" width="150" height="39"  style="display: block;"></a>
+                  <a href="{{feature.targetUrl}}?utm_content=feature_cta"><img src="https://cdn.maropost.com/pro/uploads/account_694/178590/r4l.read_more_button_black_a.png" alt="ad" width="150" height="39"  style="display: block;"></a>
                 </span>
               </td>
 
@@ -249,14 +243,6 @@
   <td><img src="http://liveintent.recipe4living-recipes.com/imp?s=123786419&sz=2x1&li=703A&e={{contact.email}}&p={{campaign.id}}" width="2" height="6" border="0" /></td>
   </tr></tbody></table>
   <!-- safeRTB -->
-
-  <!-- LiveRamp tags -->
-  <img border='0' hspace='0' vspace='0' width='1' height='1' src='https://ei.rlcdn.com/447926.gif?s={{contact.email_sha1}}&n=1'/>
-  <img border='0' hspace='0' vspace='0' width='1' height='1' src='https://ei.rlcdn.com/447926.gif?s={{contact.email_sha1}}&n=2'/>
-  <img border='0' hspace='0' vspace='0' width='1' height='1' src='https://ei.rlcdn.com/447926.gif?s={{contact.email_sha1}}&n=3'/>
-  <img border='0' hspace='0' vspace='0' width='1' height='1' src='https://ei.rlcdn.com/447926.gif?s={{contact.email_sha1}}&n=4'/>
-  <img border='0' hspace='0' vspace='0' width='1' height='1' src='https://ei.rlcdn.com/447926.gif?s={{contact.email_sha1}}&n=5'/>
-  <!-- LiveRamp tags -->
 
 </body>
 </html>
